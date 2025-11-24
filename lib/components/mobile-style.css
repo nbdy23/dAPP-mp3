@@ -1,0 +1,280 @@
+.strudel-terminal {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60vh;
+    background: rgba(0, 0, 0, 0.98);
+    border-top: 2px solid #1db954;
+    z-index: 50;
+    padding: 0;
+}
+
+.strudel-terminal.active {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Terminal Header */
+.terminal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    background: rgba(0, 0, 0, 0.9);
+    border-bottom: 1px solid rgba(29, 185, 84, 0.3);
+    flex-shrink: 0;
+}
+
+.terminal-title {
+    color: #1db954;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* Pattern Toggle Button */
+.pattern-toggle-btn {
+    background: #1db954;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 200;
+}
+
+.pattern-toggle-btn:active {
+    transform: scale(0.95);
+    background: #189945;
+}
+
+/* ========================================
+   STRUDEL IFRAME - FULL WIDTH
+   ======================================== */
+
+.strudel-iframe {
+    width: 100% !important;
+    height: calc(100% - 50px) !important;
+    border: none;
+    background: black;
+}
+
+/* ========================================
+   PATTERN LIBRARY - SEPARATE OVERLAY
+   ======================================== */
+
+#pattern-library {
+    position: fixed !important;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70vh;
+    background: rgba(0, 0, 0, 0.98);
+    border-top: 2px solid #1db954;
+    padding: 70px 20px 20px 20px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 9999 !important;
+    
+    /* Hidden by default - below screen */
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Show pattern library */
+#pattern-library.show {
+    transform: translateY(0) !important;
+}
+
+#pattern-library h3 {
+    color: #1db954;
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 700;
+}
+
+/* Close Button */
+.pattern-close {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: white;
+    font-size: 1.8rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    transition: all 0.3s ease;
+}
+
+.pattern-close:active {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(0.9);
+}
+
+/* ========================================
+   PATTERN ITEMS
+   ======================================== */
+
+.pattern-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(29, 185, 84, 0.08);
+    border: 2px solid rgba(29, 185, 84, 0.3);
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.pattern-item:active {
+    transform: scale(0.98);
+    background: rgba(29, 185, 84, 0.3);
+    border-color: #1db954;
+}
+
+.pattern-emoji {
+    font-size: 2.2rem;
+    flex-shrink: 0;
+}
+
+.pattern-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.pattern-label {
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+}
+
+.pattern-item code {
+    color: #1db954;
+    font-size: 0.85rem;
+    display: block;
+    word-wrap: break-word;
+    font-family: 'Courier New', monospace;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+/* ========================================
+   COPY NOTIFICATION
+   ======================================== */
+
+.copy-notification {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background: #1db954;
+    color: white;
+    padding: 25px 35px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 1.3rem;
+    z-index: 99999;
+    opacity: 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 15px 50px rgba(29, 185, 84, 0.6);
+    pointer-events: none;
+}
+
+.copy-notification.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* ========================================
+   GLOBE CANVAS - MOBILE FIX
+   ======================================== */
+
+#globe-canvas {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    height: calc(40vh - 80px);
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* ========================================
+   MOBILE (≤768px)
+   ======================================== */
+
+@media (max-width: 768px) {
+    .strudel-terminal {
+        height: 60vh;
+    }
+    
+    #pattern-library {
+        height: 70vh;
+    }
+    
+    #globe-canvas {
+        top: 60px !important;
+        height: calc(40vh - 60px) !important;
+    }
+    
+    header {
+        padding: 1rem 1.5rem;
+    }
+}
+
+/* ========================================
+   TABLET & DESKTOP (≥769px)
+   ======================================== */
+
+@media (min-width: 769px) {
+    /* Pattern library as sidebar */
+    #pattern-library {
+        position: absolute !important;
+        right: 0;
+        bottom: auto;
+        top: 50px;
+        width: 340px;
+        height: calc(100% - 50px);
+        transform: translateY(0) !important;
+        border-top: none;
+        border-left: 1px solid rgba(29, 185, 84, 0.3);
+        z-index: 100 !important;
+        padding: 20px;
+    }
+    
+    .strudel-iframe {
+        width: calc(100% - 340px) !important;
+    }
+    
+    .pattern-toggle-btn {
+        display: none;
+    }
+    
+    .pattern-close {
+        display: none;
+    }
+    
+    .strudel-terminal {
+        height: 40vh;
+    }
+    
+    #globe-canvas {
+        height: calc(60vh - 80px) !important;
+    }
+}
