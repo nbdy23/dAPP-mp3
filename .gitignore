@@ -1,0 +1,15 @@
+# dependencies
+.env
+.env.local
+
+# System files
+.DS_Store
+Thumbs.db
+
+# logs
+logs/
+*.log
+
+# Temporary files
+*.tmp
+.cache/

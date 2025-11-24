@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="lib/components/style.css">
+        <link rel="stylesheet" href="lib/components/mode-selector.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        
+        <title>dAPP MIDI</title>
+    </head>
+    <body>
+        <div id="mode-selector-overlay" class="mode-overlay">
+            <div class="mode-container">
+                <!-- Logo/Brand -->
+                <div class="mode-logo">
+                    <h1 class="mode-brand">dAPP MIDI</h1>
+                </div>
+                <!-- Create Mode -->
+                <div class="mode-card" data-mode="create">
+                    <div class="mode-icon">🎹</div>
+                    <div class="mode-name">Create</div>
+                    <div class="mode-description">
+                        Live code music with Strudel<br>
+                        Build your own sounds
+                    </div>
+                    <div class="mode-features">
+                        <span>✓ Live coding</span>
+                        <span>✓ MIDI editor</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 3D Globe Canvas -->
+    <canvas id="globe-canvas"></canvas>
+    <!-- Header -->
+    <header>
+        <a class="brand-link" href="/">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 75 43" class="brand-logo">
+                <circle cx="37.5" cy="21.5" r="15" stroke="currentColor" stroke-width="2"></circle>
+            </svg>
+            <span class="brand-name">dAPP MIDI</span>
+        </a>
+    </header>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="lib/components/globe.js"></script>
+    <script src="lib/components/mode-selector.js"></script>
+</body>
+</html>
